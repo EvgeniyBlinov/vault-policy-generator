@@ -7,6 +7,7 @@
 #   l = list
 #   s = sudo
 #   x = deny
+#   UPPERCASE = recurse mode
 path:
   - path: "secret/data/dc1/shared*"
     capabilities: Lcrud
