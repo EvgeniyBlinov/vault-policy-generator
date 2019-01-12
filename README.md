@@ -39,9 +39,8 @@ Policy
         "list"
       ]
     },
-    "secret/data/dc1/read": {
+    "secret/data": {
       "capabilities": [
-        "read",
         "list"
       ]
     },
@@ -50,17 +49,18 @@ Policy
         "list"
       ]
     },
-    "secret/data/dc1/shared*": {
+    "secret/data/dc1/read": {
       "capabilities": [
         "read",
-        "delete",
-        "update",
-        "create",
         "list"
       ]
     },
-    "secret/data": {
+    "secret/data/dc1/shared*": {
       "capabilities": [
+        "delete",
+        "create",
+        "read",
+        "update",
         "list"
       ]
     }
