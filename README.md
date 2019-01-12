@@ -9,6 +9,8 @@
 cat ./policy.yml | ./vaultPG.py
 ```
 
+Source
+
 ```yaml
 #  vim: set et fenc=utf-8 ff=unix sts=2 sw=2 ts=2
 # policy
@@ -25,6 +27,45 @@ path:
     capabilities: Lcrud
   - path: "secret/data/dc1/read"
     capabilities: Lr
+```
+
+Policy
+
+```json
+{
+  "path": {
+    "secret": {
+      "capabilities": [
+        "list"
+      ]
+    },
+    "secret/data/dc1/read": {
+      "capabilities": [
+        "read",
+        "list"
+      ]
+    },
+    "secret/data/dc1": {
+      "capabilities": [
+        "list"
+      ]
+    },
+    "secret/data/dc1/shared*": {
+      "capabilities": [
+        "read",
+        "delete",
+        "update",
+        "create",
+        "list"
+      ]
+    },
+    "secret/data": {
+      "capabilities": [
+        "list"
+      ]
+    }
+  }
+}
 ```
 
 ## License

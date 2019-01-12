@@ -65,7 +65,7 @@ class VaultPolicyGenerator(object):
         self.viewPolicy(vpol)
 
     def viewPolicy(self, vpol):
-        print(json.dumps(vpol, ensure_ascii=False))
+        print(json.dumps(vpol, indent=2, sort_keys=True, ensure_ascii=False))
 
 ########################################################################
 #                        Console
