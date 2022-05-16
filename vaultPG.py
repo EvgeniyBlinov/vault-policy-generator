@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 ft=python
 import sys,os,getopt,re,string,yaml,json
-from pprint import pprint
 
 class VaultPolicyGenerator(object):
     MODE_MAP = {
@@ -15,7 +14,7 @@ class VaultPolicyGenerator(object):
         'x': 'deny'
     }
 
-    def getSubPathes(self, ppath, mode):
+    def getSubPathes(self, ppath: str, mode: str):
         spathes = {}
         spathes[ppath] = {'capabilities': self.parseCap(mode)}
         ppathSplit = ppath.rsplit('/')
@@ -25,7 +24,7 @@ class VaultPolicyGenerator(object):
             }
         return spathes
 
-    def parsePath(self, path):
+    def parsePath(self, path: dict):
         vpathes = {}
         vcap = []
         ppath = path['path']
@@ -53,9 +52,9 @@ class VaultPolicyGenerator(object):
         z.update(y)    # modifies z with y's keys and values & returns None
         return z
 
-    def parsePolicy(self, text):
+    def parsePolicy(self, text: str):
         vpol   = {}
-        policy = yaml.load(text)
+        policy = yaml.safe_load(text)
         if policy['path']:
             vpolPath = {}
             for path in policy['path']:
